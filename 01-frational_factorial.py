@@ -3,19 +3,21 @@ import numpy as np
 import pandas as pd
 # Variable names and ranges
 
-component_1 = "Protein"
-component_2 = "Succrose"
-component_3 = "Histamin"
-component_4 = "PEG400"
-component_5 = "PS20"
+component_1 = "Protein[mg/ml]"
+component_2 = "Succrose[mM]"
+component_3 = "Histidine[mM]"
+component_4 = "Arginine[mM]"
+component_5 = 'Methionine[mM]'
+component_6 = 'PLX188[%]'
 
-range_component_1 = (-1, 1)
-range_component_2 = (-1, 1)
-range_component_3 = (-1, 1)
-range_component_4 = (-1, 1)
-range_component_5 = (-1, 1)
+range_component_1 = (0, 100)
+range_component_2 = (0, 160)
+range_component_3 = (0, 20)
+range_component_4 = (0, 50)
+range_component_5 = (0, 5)
+range_component_6 = (0, 0.1)
 
-export_path = 'c:/Users/GAURIJU1/OneDrive - Novartis Pharma AG/Documents/fractional_experiment.xlsx'
+export_path = 'c:/Users/GAURIJU1/OneDrive - Novartis Pharma AG/Documents/fractional_experiment_v3.xlsx'
 
 
 # 1. DEFINE EXPERIMENT PARAMETERS
@@ -24,11 +26,12 @@ factors = {
     component_2: range_component_2, 
     component_3: range_component_3,
     component_4: range_component_4,
-    component_5: range_component_5
+    component_5: range_component_5,
+    component_6: range_component_6,
 }
 
-num_factors = 5
-num_generators = 2
+num_factors = 6
+num_generators = 3
 
 # 2. FIND OPTIMAL DESIGN
 optimal_generator, aliases, cost = fracfact_opt(num_factors, num_generators)
