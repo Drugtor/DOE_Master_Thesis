@@ -1,0 +1,38 @@
+from pyDOE3 import fracfact, fracfact_opt, fracfact_by_res
+import numpy as np
+import pandas as pd
+
+
+# 1. DEFINE EXPERIMENT PARAMETERS
+factors = {
+    "Protein": (-1, 1),
+    "Succrose": (-1, 1), 
+    "Histamin": (-1, 1),
+    "PEG400": (-1, 1),
+    "PS20": (-1, 1)
+}
+
+num_factors = 5
+num_generators = 2
+
+# 2. FIND OPTIMAL DESIGN
+optimal_generator, aliases, cost = fracfact_opt(num_factors, num_generators)
+print(f"Optimal generator: {optimal_generator}")
+
+# 3. CREATE DESIGN
+design = fracfact(optimal_generator)
+
+# 4. CONVERT TO DATAFRAME
+df = pd.DataFrame(design, columns=factors.keys())
+
+# 5. MAP TO REAL VALUES
+for factor, (low, high) in factors.items():
+    df[factor] = df[factor].map({-1: low, 1: high})
+
+# 6. RANDOMIZE AND EXPORT
+df = df.sample(frac=1, random_state=42).reset_index(drop=True)
+df.index += 1
+df.index.name = 'Run'
+df['Freezetime'] = ''
+#df.to_excel('c:/Users/GAURIJU1/OneDrive - Novartis Pharma AG/Documents/fractional_experiment.xlsx')
+print(f"Design created: {len(df)} runs")
