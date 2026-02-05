@@ -3,7 +3,7 @@ import pandas as pd
 import statsmodels.api as sm
 from statsmodels.formula.api import ols
 
-data = pd.read_excel('C:/Users/GAURIJU1/OneDrive - Novartis Pharma AG/Documents/fractional_experiment_dummy.xlsx')
+data = pd.read_excel('c:/Users/user/documents/fractional_experiment.xlsx')
 
 # CONVERT THE EXCEL TO DATAFRAME
 df = pd.DataFrame(data)
@@ -28,7 +28,7 @@ thaw_anova_table = sm.stats.anova_lm(thaw_model, typ=2)
 # CONVERTING AND EXPORTING THE ANOVA TABLES WITH THE BACKGROUND DATA
 freeze_data = pd.DataFrame(freeze_anova_table)
 thaw_data = pd.DataFrame(thaw_anova_table)
-with pd.ExcelWriter('C:/Users/GAURIJU1/OneDrive - Novartis Pharma AG/Documents/ANOVA_fractional_dummy.xlsx') as writer:
+with pd.ExcelWriter('c:/Users/user/documents/ANOVA_fractional_dummy.xlsx') as writer:
     freeze_data.to_excel(writer, sheet_name='ANOVA Freeze')
     thaw_data.to_excel(writer, sheet_name='ANOVA Thaw')
     df.to_excel(writer, sheet_name='Raw Data', index=False)
