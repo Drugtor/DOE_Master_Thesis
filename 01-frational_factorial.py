@@ -17,7 +17,7 @@ range_component_4 = (0, 50)
 range_component_5 = (0, 5)
 range_component_6 = (0, 0.1)
 
-export_path = 'c:/Users/GAURIJU1/OneDrive - Novartis Pharma AG/Documents/fractional_experiment_v3.xlsx'
+export_path = 'c:/Users/user/documents/fractional_experiment.xlsx'
 
 
 # 1. DEFINE EXPERIMENT PARAMETERS
