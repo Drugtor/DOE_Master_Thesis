@@ -13,7 +13,7 @@ range_component_3 = (50, 150)
 
 variation_control = (3) #Adds complimentary experiments to calculate the error
 
-export_path = 'c:/Users/GAURIJU1/OneDrive - Novartis Pharma AG/Documents/BoxBehnken_experiment.xlsx'
+export_path = 'c:/Users/user/documents/BoxBehnken_experiment.xlsx'
 
 # DON'T TOUCH!!
 # Creating a design we can use
